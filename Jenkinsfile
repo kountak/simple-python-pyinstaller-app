@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker {
+                any {
                     image 'python:2-alpine'
                 }
             }
@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             agent {
-                docker {
+                any {
                     image 'qnib/pytest'
                 }
             }
@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Deliver') {
             agent {
-                docker {
+                any {
                     image 'cdrx/pyinstaller-linux:python2'
                 }
             }
